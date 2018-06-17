@@ -1,0 +1,18 @@
+Todavia, a simples adaptação de uma solução já existente, a qual utiliza o processo de orçamentação tradicional (CAD/Excel/Planilha orçamentária) subutiliza os benefícios proporcionados pelo BIM, pois:
+1. Depende da criação de arquivos de texto para troca de dados entre o modelo BIM e o software utilizado para orçamentação, que é um trabalho manual, sujeito a erros que não representa o conceito do BIM;
+2. Depende da integração entre o modelo BIM e o software de orçamentação, que não interage de forma eficaz e nem representa o conceito da tecnologia BIM;
+3. Não há representação visual do orçamento, no modelo 3D, requisito para ser um software em BIM; e,
+4. Deste modo, são geralmente voltados para o uso de software BIM específico (somente para o Autodesk Revit® ou para o Archicad®, por exemplo).
+Diante do exposto, propõe-se a criação de uma solução tecnológica para integrar de forma nativa um modelo BIM para o orçamento da obra, eliminando totalmente ou parcialmente as deficiências que podem incorrer em erros de planejamento, evitando a subestimação ou superestimação do custo da obra, evitando que ocorra prejuízos para os envolvidos com uma obra e para toda a sociedade. 
+
+
+Inicialmente todos os autores deverão submeter artigos compactos (short papers), no máximo, 1.800 palavras, como indicado nesse documento. Os trabalhos selecionados pelo comitê científico, dentre aqueles aceitos para publicação, para apresentação oral, poderão ser expandidos, até o máximo de 4000 palavras. Os demais trabalhos aceitos serão publicados como artigos compactos (short paper), mediante as revisões requeridas. 
+O artigo compacto deverá atender ao limite máximo de 1800 palavras, excluindo-se apenas título e referências bibliográficas.  Sua estrutura pode ser a mesma de um trabalho completo, chamando a atenção para o fato de que a Revisão Bibliográfica não deve ser extensa, mas apenas contextualizar brevemente o referencial teórico. 
+ A introdução representa o contato inicial do leitor com o texto, portanto, deve ser clara, objetiva e sintética. Nela trata-se sucintamente da natureza do assunto, dos objetivos, das limitações, dos métodos e resultados do trabalho apresentado. 
+Os trabalhos deverão ser escritos em português. Os trabalhos aceitos, tanto na forma compacta como expandida, serão publicados em meio digital. 
+Observe as instruções e formate seu trabalho de acordo com este padrão. A adequação do seu trabalho a estas normas é fundamental para sua aprovação. 
+
+
+
+inciou-se o processo de programação propriamente dito. As linhas de comando foram elaboradas para simular a ação do engenheiro de planejamento.
+O trabalho deve ser escrito e enviado para a comissão organizadora do evento em Word 2007 ou versão superior.
