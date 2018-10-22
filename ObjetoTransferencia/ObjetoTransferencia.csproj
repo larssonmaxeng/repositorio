@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A15D6356-669C-4EE2-B68A-8C6C4E78C99A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ObjetoTransferencia</RootNamespace>
+    <AssemblyName>ObjetoTransferencia</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RegisterForComInterop>false</RegisterForComInterop>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AcaoFormAvanco.cs" />
+    <Compile Include="ACESSO_SERVICO_AMO.cs" />
+    <Compile Include="AMBIENTES.cs" />
+    <Compile Include="Atributo.cs" />
+    <Compile Include="Atributos.cs" />
+    <Compile Include="CategoriaFamiliaTipoRevit.cs" />
+    <Compile Include="CAUSA_PCP.cs" />
+    <Compile Include="CompInsGeral.cs" />
+    <Compile Include="Composicoes.cs" />
+    <Compile Include="Contrato_ERP.cs" />
+    <Compile Include="DadosTarefaProjec.cs" />
+    <Compile Include="ElementoSubir.cs" />
+    <Compile Include="Empresa.cs" />
+    <Compile Include="EstruturaServicoOrcamento.cs" />
+    <Compile Include="ETAPA.cs" />
+    <Compile Include="GRUPO_PLAN_SERVICO.cs" />
+    <Compile Include="InsumosGeral.cs" />
+    <Compile Include="Historico_Exporta_Qtde.cs" />
+    <Compile Include="Hist_Exporta_Qtde_Insumo.cs" />
+    <Compile Include="Item_Estrutura_UAU.cs" />
+    <Compile Include="MEDICAO_BLOCO.cs" />
+    <Compile Include="Modelo.cs" />
+    <Compile Include="MODELO_OBRA.cs" />
+    <Compile Include="Obra.cs" />
+    <Compile Include="PAR_ACOMPANHA_CONTRATO_TOCBIM.cs" />
+    <Compile Include="PAR_BUSCAR_CONTRATOS_UAU.cs" />
+    <Compile Include="PAR_GERAR_MS_PROJECT_AMBIENTE.cs" />
+    <Compile Include="PARAMETROS_REVIT.cs" />
+    <Compile Include="PAR_ACOMPANHA_SERVICO_ORCADO.cs" />
+    <Compile Include="PAR_ATUALIZAR_LEVEL.cs" />
+    <Compile Include="Bloco.cs" />
+    <Compile Include="PAR_CRITICA.cs" />
+    <Compile Include="PAR_DADO_AVANCO.cs" />
+    <Compile Include="PAR_EXCLUIR_CAUSA.cs" />
+    <Compile Include="PAR_FECHAR_PCP.cs" />
+    <Compile Include="PAR_FILTRA_AVANCADOS.cs" />
+    <Compile Include="PAR_GERAR_MS_PROJECT.cs" />
+    <Compile Include="PAR_INCLUIR_CAUSA.cs" />
+    <Compile Include="PAR_INSERIR_AMBIENTE.cs" />
+    <Compile Include="PAR_INSERIR_MES_PLAN.cs" />
+    <Compile Include="PAR_INSERIR_PLANEJAMENTO.cs" />
+    <Compile Include="PAR_PLAN_SERVICO_AMO.cs" />
+    <Compile Include="PAR_ATUALIZAR_PSA.cs" />
+    <Compile Include="PAR_AVANCA_PSA.cs" />
+    <Compile Include="PAR_DEFERIR_AVANCO_PROJECAO.cs" />
+    <Compile Include="PAR_DELETAR_PSA.cs" />
+    <Compile Include="PAR_INSERIR_LVTMO_DIVERSO.cs" />
+    <Compile Include="PAR_QTDE_MEDICAO_BLOCO.cs" />
+    <Compile Include="PAR_RESULT_SUB_GRAFICO.cs" />
+    <Compile Include="PAR_SEL_PLANILHA.cs" />
+    <Compile Include="PAR_UPDATE_AMBIENTE.cs" />
+    <Compile Include="PAR_PRC_SUBIDOS.cs" />
+    <Compile Include="PAR_PROJECAO_PSA.cs" />
+    <Compile Include="PAR_PROJ_PSA_ELE_VINCULADO.cs" />
+    <Compile Include="PAR_SEMANA_PCP.cs" />
+    <Compile Include="PAR_TEM_PROJECAO.cs" />
+    <Compile Include="PAR_VERIFICAR_EXECUCAO.cs" />
+    <Compile Include="PLAN_SERVICO_AMO_OFFLINE.cs" />
+    <Compile Include="AVANCAR_AMBIENTE_SERVICO.cs" />
+    <Compile Include="PAR_PRC_ELIMINAR_AVANCO_PSA_NOVO.cs" />
+    <Compile Include="PRC_EXPORTA_PLANEJADO.cs" />
+    <Compile Include="PRC_EXPORTA_QTDE.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Qtde_Mapa_Servico.cs" />
+    <Compile Include="ResultadoProcura.cs" />
+    <Compile Include="Servico.cs" />
+    <Compile Include="ServicoOrcamento.cs" />
+    <Compile Include="UsuarioUAU.cs" />
+    <Compile Include="VINCULO_MODELO_BIM.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
