@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/UAUTitanium" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/UAUTitanium" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/UAUTitanium">
+      <s:element name="ConsultaItensContratoPendente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codEmpresa" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="codContrato" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultaItensContratoPendenteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultaItensContratoPendenteResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarAprovacoesRealizadasNoContrato">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="empresa" type="s:short" />
+            <s:element minOccurs="1" maxOccurs="1" name="contrato" type="s:short" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarAprovacoesRealizadasNoContratoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarAprovacoesRealizadasNoContratoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarContratosAprovacoesPendentes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="departamento" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cargo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarContratosAprovacoesPendentesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarContratosAprovacoesPendentesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarContratoAprovacaoPendente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="empresa" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="obra" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="contrato" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="departamento" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cargo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarContratoAprovacaoPendenteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarContratoAprovacaoPendenteResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QtdeContratosAprovacoesPendentes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="departamento" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cargo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QtdeContratosAprovacoesPendentesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="QtdeContratosAprovacoesPendentesResult" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarDescontosContrato">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codEmpresa" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="codContrato" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarDescontosContratoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarDescontosContratoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AprovarContrato">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codEmpresa" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="codObra" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="codContrato" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="usuarioLogado" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="valorContrato" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="departamento" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cargo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="codJustificativa" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="obsJustificativa" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AprovarContratoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AprovarContratoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ConsultaItensContratoPendenteSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultaItensContratoPendente" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaItensContratoPendenteSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultaItensContratoPendenteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarAprovacoesRealizadasNoContratoSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarAprovacoesRealizadasNoContrato" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarAprovacoesRealizadasNoContratoSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarAprovacoesRealizadasNoContratoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarContratosAprovacoesPendentesSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarContratosAprovacoesPendentes" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarContratosAprovacoesPendentesSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarContratosAprovacoesPendentesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarContratoAprovacaoPendenteSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarContratoAprovacaoPendente" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarContratoAprovacaoPendenteSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarContratoAprovacaoPendenteResponse" />
+  </wsdl:message>
+  <wsdl:message name="QtdeContratosAprovacoesPendentesSoapIn">
+    <wsdl:part name="parameters" element="tns:QtdeContratosAprovacoesPendentes" />
+  </wsdl:message>
+  <wsdl:message name="QtdeContratosAprovacoesPendentesSoapOut">
+    <wsdl:part name="parameters" element="tns:QtdeContratosAprovacoesPendentesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarDescontosContratoSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarDescontosContrato" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarDescontosContratoSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarDescontosContratoResponse" />
+  </wsdl:message>
+  <wsdl:message name="AprovarContratoSoapIn">
+    <wsdl:part name="parameters" element="tns:AprovarContrato" />
+  </wsdl:message>
+  <wsdl:message name="AprovarContratoSoapOut">
+    <wsdl:part name="parameters" element="tns:AprovarContratoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="wsContratoMaterialServicoSoap">
+    <wsdl:operation name="ConsultaItensContratoPendente">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Busca os itens de contrato das aprovações pendentes, aos quais o usuário logado tem permissão de aprovação</wsdl:documentation>
+      <wsdl:input message="tns:ConsultaItensContratoPendenteSoapIn" />
+      <wsdl:output message="tns:ConsultaItensContratoPendenteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarAprovacoesRealizadasNoContrato">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta de aprovações realizadas no contrato.</wsdl:documentation>
+      <wsdl:input message="tns:ConsultarAprovacoesRealizadasNoContratoSoapIn" />
+      <wsdl:output message="tns:ConsultarAprovacoesRealizadasNoContratoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarContratosAprovacoesPendentes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Busca os contratos que estão pendentes de aprovação para o usuário logado.</wsdl:documentation>
+      <wsdl:input message="tns:ConsultarContratosAprovacoesPendentesSoapIn" />
+      <wsdl:output message="tns:ConsultarContratosAprovacoesPendentesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarContratoAprovacaoPendente">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consultar o contrato com aprovação pendente para o usuário.</wsdl:documentation>
+      <wsdl:input message="tns:ConsultarContratoAprovacaoPendenteSoapIn" />
+      <wsdl:output message="tns:ConsultarContratoAprovacaoPendenteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QtdeContratosAprovacoesPendentes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Busca a quantidade de contratos que estão pendentes de aprovação para o usuário logado.</wsdl:documentation>
+      <wsdl:input message="tns:QtdeContratosAprovacoesPendentesSoapIn" />
+      <wsdl:output message="tns:QtdeContratosAprovacoesPendentesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarDescontosContrato">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Busca os descontos do Contrato.</wsdl:documentation>
+      <wsdl:input message="tns:ConsultarDescontosContratoSoapIn" />
+      <wsdl:output message="tns:ConsultarDescontosContratoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AprovarContrato">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Aprova o contrato.</wsdl:documentation>
+      <wsdl:input message="tns:AprovarContratoSoapIn" />
+      <wsdl:output message="tns:AprovarContratoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="wsContratoMaterialServicoSoap" type="tns:wsContratoMaterialServicoSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ConsultaItensContratoPendente">
+      <soap:operation soapAction="http://tempuri.org/UAUTitanium/ConsultaItensContratoPendente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarAprovacoesRealizadasNoContrato">
+      <soap:operation soapAction="http://tempuri.org/UAUTitanium/ConsultarAprovacoesRealizadasNoContrato" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarContratosAprovacoesPendentes">
+      <soap:operation soapAction="http://tempuri.org/UAUTitanium/ConsultarContratosAprovacoesPendentes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarContratoAprovacaoPendente">
+      <soap:operation soapAction="http://tempuri.org/UAUTitanium/ConsultarContratoAprovacaoPendente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QtdeContratosAprovacoesPendentes">
+      <soap:operation soapAction="http://tempuri.org/UAUTitanium/QtdeContratosAprovacoesPendentes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarDescontosContrato">
+      <soap:operation soapAction="http://tempuri.org/UAUTitanium/ConsultarDescontosContrato" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AprovarContrato">
+      <soap:operation soapAction="http://tempuri.org/UAUTitanium/AprovarContrato" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="wsContratoMaterialServicoSoap12" type="tns:wsContratoMaterialServicoSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ConsultaItensContratoPendente">
+      <soap12:operation soapAction="http://tempuri.org/UAUTitanium/ConsultaItensContratoPendente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarAprovacoesRealizadasNoContrato">
+      <soap12:operation soapAction="http://tempuri.org/UAUTitanium/ConsultarAprovacoesRealizadasNoContrato" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarContratosAprovacoesPendentes">
+      <soap12:operation soapAction="http://tempuri.org/UAUTitanium/ConsultarContratosAprovacoesPendentes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarContratoAprovacaoPendente">
+      <soap12:operation soapAction="http://tempuri.org/UAUTitanium/ConsultarContratoAprovacaoPendente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QtdeContratosAprovacoesPendentes">
+      <soap12:operation soapAction="http://tempuri.org/UAUTitanium/QtdeContratosAprovacoesPendentes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarDescontosContrato">
+      <soap12:operation soapAction="http://tempuri.org/UAUTitanium/ConsultarDescontosContrato" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AprovarContrato">
+      <soap12:operation soapAction="http://tempuri.org/UAUTitanium/AprovarContrato" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="wsContratoMaterialServico">
+    <wsdl:port name="wsContratoMaterialServicoSoap" binding="tns:wsContratoMaterialServicoSoap">
+      <soap:address location="http://200.178.248.104:86/WsTocBIM/Webservices/wsContratoMaterialServico.asmx" />
+    </wsdl:port>
+    <wsdl:port name="wsContratoMaterialServicoSoap12" binding="tns:wsContratoMaterialServicoSoap12">
+      <soap12:address location="http://200.178.248.104:86/WsTocBIM/Webservices/wsContratoMaterialServico.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

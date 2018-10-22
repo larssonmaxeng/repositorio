@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/UAUWeb_WS/wsAcompanhamentosServicos" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/UAUWeb_WS/wsAcompanhamentosServicos" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/UAUWeb_WS/wsAcompanhamentosServicos">
+      <s:element name="AcompanharServicoOrcado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="empresa" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="obra" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="servico" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="item" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="orcamento" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="periodo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="quantidade" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="usuarioLogado" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sequencia" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AcompanharServicoOrcadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AcompanharServicoOrcadoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AcompanharServicoContrato">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="empresa" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="obra" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="contratoServico" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="itemContrato" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="servico" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dataInicio" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dataFim" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="mesPl" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="quantidade" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="porcentagemAcomp" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="observacoes" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="etapa" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="codEstrutura" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sequencia" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="usuarioLogado" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AcompanharServicoContratoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AcompanharServicoContratoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AcompanharServicoPL">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="empresa" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="obra" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="produto" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="contrato" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="item" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="servico" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="mes" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="qtde" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="sequencia" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AcompanharServicoPLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AcompanharServicoPLResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExcluirAcompanhamentoServicoPL">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="empresa" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="obra" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="produto" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="contrato" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="item" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="servico" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="mes" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="qtde" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="sequencia" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExcluirAcompanhamentoServicoPLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ExcluirAcompanhamentoServicoPLResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExcluirAcompanhamentoServicoOrcado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="empresa" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="obra" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="servico" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="item" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="orcamento" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="periodo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="quantidade" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="sequencia" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExcluirAcompanhamentoServicoOrcadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ExcluirAcompanhamentoServicoOrcadoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExcluirAcompanhamentoServicoDeContrato">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="empresa" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="contratoServico" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="itemContrato" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="servico" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="quantidade" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="sequencia" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="codigoEstrutura" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="usuarioLogado" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExcluirAcompanhamentoServicoDeContratoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ExcluirAcompanhamentoServicoDeContratoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AcompanharServicoOrcadoSoapIn">
+    <wsdl:part name="parameters" element="tns:AcompanharServicoOrcado" />
+  </wsdl:message>
+  <wsdl:message name="AcompanharServicoOrcadoSoapOut">
+    <wsdl:part name="parameters" element="tns:AcompanharServicoOrcadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="AcompanharServicoContratoSoapIn">
+    <wsdl:part name="parameters" element="tns:AcompanharServicoContrato" />
+  </wsdl:message>
+  <wsdl:message name="AcompanharServicoContratoSoapOut">
+    <wsdl:part name="parameters" element="tns:AcompanharServicoContratoResponse" />
+  </wsdl:message>
+  <wsdl:message name="AcompanharServicoPLSoapIn">
+    <wsdl:part name="parameters" element="tns:AcompanharServicoPL" />
+  </wsdl:message>
+  <wsdl:message name="AcompanharServicoPLSoapOut">
+    <wsdl:part name="parameters" element="tns:AcompanharServicoPLResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExcluirAcompanhamentoServicoPLSoapIn">
+    <wsdl:part name="parameters" element="tns:ExcluirAcompanhamentoServicoPL" />
+  </wsdl:message>
+  <wsdl:message name="ExcluirAcompanhamentoServicoPLSoapOut">
+    <wsdl:part name="parameters" element="tns:ExcluirAcompanhamentoServicoPLResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExcluirAcompanhamentoServicoOrcadoSoapIn">
+    <wsdl:part name="parameters" element="tns:ExcluirAcompanhamentoServicoOrcado" />
+  </wsdl:message>
+  <wsdl:message name="ExcluirAcompanhamentoServicoOrcadoSoapOut">
+    <wsdl:part name="parameters" element="tns:ExcluirAcompanhamentoServicoOrcadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExcluirAcompanhamentoServicoDeContratoSoapIn">
+    <wsdl:part name="parameters" element="tns:ExcluirAcompanhamentoServicoDeContrato" />
+  </wsdl:message>
+  <wsdl:message name="ExcluirAcompanhamentoServicoDeContratoSoapOut">
+    <wsdl:part name="parameters" element="tns:ExcluirAcompanhamentoServicoDeContratoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="wsAcompanhamentosServicosSoap">
+    <wsdl:operation name="AcompanharServicoOrcado">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Acompanhamento de Serviços de orçamento.</wsdl:documentation>
+      <wsdl:input message="tns:AcompanharServicoOrcadoSoapIn" />
+      <wsdl:output message="tns:AcompanharServicoOrcadoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AcompanharServicoContrato">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Acompanhamento de Serviços de contrato.</wsdl:documentation>
+      <wsdl:input message="tns:AcompanharServicoContratoSoapIn" />
+      <wsdl:output message="tns:AcompanharServicoContratoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AcompanharServicoPL">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Acompanhamento de Serviços do planejamento.</wsdl:documentation>
+      <wsdl:input message="tns:AcompanharServicoPLSoapIn" />
+      <wsdl:output message="tns:AcompanharServicoPLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirAcompanhamentoServicoPL">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Exclusão de acompanhamento de Serviços do planejamento.</wsdl:documentation>
+      <wsdl:input message="tns:ExcluirAcompanhamentoServicoPLSoapIn" />
+      <wsdl:output message="tns:ExcluirAcompanhamentoServicoPLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirAcompanhamentoServicoOrcado">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Exclusão de acompanhamento de serviço orçado.</wsdl:documentation>
+      <wsdl:input message="tns:ExcluirAcompanhamentoServicoOrcadoSoapIn" />
+      <wsdl:output message="tns:ExcluirAcompanhamentoServicoOrcadoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirAcompanhamentoServicoDeContrato">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Exclusão de acompanhamento de serviço de contrato.</wsdl:documentation>
+      <wsdl:input message="tns:ExcluirAcompanhamentoServicoDeContratoSoapIn" />
+      <wsdl:output message="tns:ExcluirAcompanhamentoServicoDeContratoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="wsAcompanhamentosServicosSoap" type="tns:wsAcompanhamentosServicosSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AcompanharServicoOrcado">
+      <soap:operation soapAction="http://tempuri.org/UAUWeb_WS/wsAcompanhamentosServicos/AcompanharServicoOrcado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AcompanharServicoContrato">
+      <soap:operation soapAction="http://tempuri.org/UAUWeb_WS/wsAcompanhamentosServicos/AcompanharServicoContrato" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AcompanharServicoPL">
+      <soap:operation soapAction="http://tempuri.org/UAUWeb_WS/wsAcompanhamentosServicos/AcompanharServicoPL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirAcompanhamentoServicoPL">
+      <soap:operation soapAction="http://tempuri.org/UAUWeb_WS/wsAcompanhamentosServicos/ExcluirAcompanhamentoServicoPL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirAcompanhamentoServicoOrcado">
+      <soap:operation soapAction="http://tempuri.org/UAUWeb_WS/wsAcompanhamentosServicos/ExcluirAcompanhamentoServicoOrcado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirAcompanhamentoServicoDeContrato">
+      <soap:operation soapAction="http://tempuri.org/UAUWeb_WS/wsAcompanhamentosServicos/ExcluirAcompanhamentoServicoDeContrato" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="wsAcompanhamentosServicosSoap12" type="tns:wsAcompanhamentosServicosSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AcompanharServicoOrcado">
+      <soap12:operation soapAction="http://tempuri.org/UAUWeb_WS/wsAcompanhamentosServicos/AcompanharServicoOrcado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AcompanharServicoContrato">
+      <soap12:operation soapAction="http://tempuri.org/UAUWeb_WS/wsAcompanhamentosServicos/AcompanharServicoContrato" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AcompanharServicoPL">
+      <soap12:operation soapAction="http://tempuri.org/UAUWeb_WS/wsAcompanhamentosServicos/AcompanharServicoPL" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirAcompanhamentoServicoPL">
+      <soap12:operation soapAction="http://tempuri.org/UAUWeb_WS/wsAcompanhamentosServicos/ExcluirAcompanhamentoServicoPL" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirAcompanhamentoServicoOrcado">
+      <soap12:operation soapAction="http://tempuri.org/UAUWeb_WS/wsAcompanhamentosServicos/ExcluirAcompanhamentoServicoOrcado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirAcompanhamentoServicoDeContrato">
+      <soap12:operation soapAction="http://tempuri.org/UAUWeb_WS/wsAcompanhamentosServicos/ExcluirAcompanhamentoServicoDeContrato" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="wsAcompanhamentosServicos">
+    <wsdl:port name="wsAcompanhamentosServicosSoap" binding="tns:wsAcompanhamentosServicosSoap">
+      <soap:address location="http://200.178.248.104:86/PortalUauTestesQualidade/Webservices/wsAcompanhamentosServicos.asmx" />
+    </wsdl:port>
+    <wsdl:port name="wsAcompanhamentosServicosSoap12" binding="tns:wsAcompanhamentosServicosSoap12">
+      <soap12:address location="http://200.178.248.104:86/PortalUauTestesQualidade/Webservices/wsAcompanhamentosServicos.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

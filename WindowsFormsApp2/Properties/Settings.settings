@@ -1,0 +1,27 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="WindowsFormsApp2.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="BLOCO_ID" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Text1</Value>
+    </Setting>
+    <Setting Name="GRUPO_PLAN_SERVICO_ID" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Text2</Value>
+    </Setting>
+    <Setting Name="SERVICO_ID" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Text3</Value>
+    </Setting>
+    <Setting Name="MEDICAO_BLOCO_ID" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Text4</Value>
+    </Setting>
+    <Setting Name="texto5" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Text5</Value>
+    </Setting>
+    <Setting Name="texto6" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Text6</Value>
+    </Setting>
+    <Setting Name="endereco" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://200.178.248.104:86/PortalUauTestesQualidade/Webservices/wsAcompanhamentosServicos.asmx?op=AcompanharServicoOrcado</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
