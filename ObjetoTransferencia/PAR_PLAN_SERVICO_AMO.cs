@@ -72,9 +72,6 @@ namespace ObjetoTransferencia
 
   
     }
-    public class PLAN_SERVICO_AMOColecao : List<PAR_PLAN_SERVICO_AMO>
-    {
-
-    }
+ 
     
 }

@@ -20,9 +20,10 @@ namespace ObjetoTransferencia
         [ParametroAttribute(true, false, true, "Código", 100,"")]
         public int NUVEM_REVISAO_ID { get; set; }
         public string MODELO_GUID_ID { get; set; }
-        public int INTEGER_VALUE { get; set; }      
+        public int INTEGER_VALUE { get; set; }
+        public string PAVIMENTO { get; set; }
+        public double ELEVACAO { get; set; }
 
-        
     }
     public class VISTA_ASSOCIADA:ParametroBasico
     {
@@ -32,6 +33,8 @@ namespace ObjetoTransferencia
         public int INTEGER_VALUE { get; set; }//
         public string COMENTARIO { get; set; }//
         public byte[] IMAGEM { get; set; }//
+		public string PAVIMENTO {get;set;}
+		public double ELEVACAO {get;set;}
 
 
     }

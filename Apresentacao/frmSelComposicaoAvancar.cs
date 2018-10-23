@@ -14,6 +14,7 @@ using RevitDB = Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using Autodesk.Revit.Attributes;
 
+
 namespace Apresentacao
 {
     public partial class frmSelComposicaoAvancar : wf.Form
@@ -21,18 +22,39 @@ namespace Apresentacao
         private List<conjuntoComp> listaConjuntoComp = new List<conjuntoComp>();
         public DataView dvConjuntoComp;
         public DataTable dtConjuntoComp;
-        public DateTime diaRealizado;        
-        public double percentAvanco;
+        public DateTime diaRealizado {
+            get
+            {
+                return dtDiaRealizado.Value;
+            }
+        }
+        public double ipercentAvanco;
+        public double PercentAvanco
+        {
+            get
+            {
+                return ipercentAvanco / 100;
+            }
+            set
+            {
+                ipercentAvanco = value * 100;
+
+            }
+        }
         public Boolean avancar;
         public UIApplication uiApp;
         private AcaoFormAvanco acaoFormAvanco;
-        private ACESSO_ACOMPANHA_CONTRATO_UAU objNeg = new ACESSO_ACOMPANHA_CONTRATO_UAU();
-        private string strDir = wf.Application.StartupPath + "\\";
+		private ACESSO_ACOMPANHA_CONTRATO_UAU objNeg = new ACESSO_ACOMPANHA_CONTRATO_UAU();
+        private string strDir;																				   
 
         public frmSelComposicaoAvancar(List<string> conjuntos, double percentAvancoPar, string strUau_Com_Vista, UIApplication iuiApp, string dir, AcaoFormAvanco iacaoFormAvanco)
         {
+
+
+            lblDiaRealizado.Visible = true;
+            dtDiaRealizado.Visible = true;
             uiApp = iuiApp;
-            InitializeComponent();
+            InitializeComponent();								  
             acaoFormAvanco = iacaoFormAvanco;
             switch (acaoFormAvanco)
             {
@@ -41,15 +63,20 @@ namespace Apresentacao
                     break;
                 case AcaoFormAvanco.PCP:
                     btnAvancar.Text = "PCP";
+                    lblDiaRealizado.Text = "PCP";
                     break;
                 case AcaoFormAvanco.LookAHead:
                     btnAvancar.Text = "Lookahead";
+                    lblDiaRealizado.Text = "Dia look";
                     break;
                 case AcaoFormAvanco.Excluir:
                     btnAvancar.Text = "Excluir";
+                    lblDiaRealizado.Text = "Dia excluir";
                     break;
                 case AcaoFormAvanco.SubGrafico:
                     btnAvancar.Text = "Substituir";
+                    lblDiaRealizado.Visible = false;
+                    dtDiaRealizado.Visible = false;
                     tabReultados.Hide();
                     break;
                 default:
@@ -77,7 +104,7 @@ namespace Apresentacao
             grdConjuntoComp.DataSource = dvConjuntoComp;
             OrganizaColunasGrdConjuntoComp();
 
-            OrganizaObjectListView();
+            OrganizaObjectListView();	 
         }
 
         private void OrganizaColunasGrdConjuntoComp()
@@ -86,7 +113,10 @@ namespace Apresentacao
             grdConjuntoComp.Columns["conjunto"].HeaderText = "CONJUNTO";
             grdConjuntoComp.Columns["composicao"].HeaderText = "COMPOSIÇÃO";
             grdConjuntoComp.Columns["servico"].HeaderText = "SERVIÇO";
-            grdConjuntoComp.Columns["percentual"].HeaderText = "PERCENTUAL";
+            grdConjuntoComp.Columns["percentual"].HeaderText = "PERCENTUAL(%)";
+
+
+
             switch (acaoFormAvanco)
             {
                 case AcaoFormAvanco.Avanco:
@@ -113,12 +143,15 @@ namespace Apresentacao
                     break;
             }
             
+ 
             //Definir colunas que podem ser editadas
             grdConjuntoComp.Columns["conjunto"].ReadOnly = true;
             grdConjuntoComp.Columns["composicao"].ReadOnly = true;
             grdConjuntoComp.Columns["servico"].ReadOnly = true;
             grdConjuntoComp.Columns["percentual"].ReadOnly = false;
-            grdConjuntoComp.Columns["avancar"].ReadOnly = false;          
+            grdConjuntoComp.Columns["avancar"].ReadOnly = false;
+
+            grdConjuntoComp.Columns["percentual"].DefaultCellStyle.Alignment = wf.DataGridViewContentAlignment.MiddleRight;
 
             //Definir tamanho das colunas - Redimenionar conforme conteudo
             grdConjuntoComp.Columns["conjunto"].AutoSizeMode = wf.DataGridViewAutoSizeColumnMode.AllCells;
@@ -166,13 +199,14 @@ namespace Apresentacao
 
         private void edtFiltro_TextChanged(object sender, EventArgs e)
         {
-            //FuncaoApresentacao.FiltraDataTable((sender as System.Windows.Forms.TextBox), grdConjuntoComp, dvConjuntoComp, dtConjuntoComp);
+            FiltraDataTable((sender as System.Windows.Forms.TextBox), grdConjuntoComp, dvConjuntoComp, dtConjuntoComp);
             FuncaoApresentacao.FiltraOlvDataTable((sender as System.Windows.Forms.TextBox), objectList, dvConjuntoComp, dtConjuntoComp);
         }
 
         private void edtFiltro_Validated(object sender, System.EventArgs e)
         {
-            diaRealizado = Convert.ToDateTime(dtDiaRealizado.Value.ToString());            
+         diaRealizado = Convert.ToDateTime(dtDiaRealizado.Value.ToString());            
+            
         }
 
         public wf.ProgressBar GetProgressoBar()
@@ -184,10 +218,10 @@ namespace Apresentacao
             tabReultados.Hide();
         }
 
-        public void CriarListaConformeConjuntoComp(List<string> conjuntos, double percentAvanco, string strUau_Com_Vista)
-        {            
-            int servicoId;
-            string strServico = "";
+        public void CriarListaConformeConjuntoComp(List<string> conjuntos, double percentAvanco, string strUau_Com_Vista, string dir)
+        {
+		
+		   
             foreach (string conj in conjuntos)
             {
                 foreach (string strUauComp in conj.Split(';'))
@@ -206,21 +240,25 @@ namespace Apresentacao
 
                     regConjuntoComp.conjunto = conj;
                     regConjuntoComp.composicao = strUauComp;
-                    servicoId = new Negocios.ACESSO_SERVICO().SelecionaPorComplemento(strDir, strUauComp, ref strServico);
-                    regConjuntoComp.percentual = percentAvanco;
+					servicoId = new Negocios.ACESSO_SERVICO().SelecionaPorComplemento(strDir, strUauComp, ref strServico);
+                 
                     regConjuntoComp.servico = strServico;
-
-                    List<ContratoAssociacao> listaContratoAssociacaos = objNeg.ListaContratosAssociados(strDir, servicoId, "T");
+				    regConjuntoComp.percentual = percentAvanco;                    
+                   
+					 
+		            List<ContratoAssociacao> listaContratoAssociacaos = objNeg.ListaContratosAssociados(strDir, servicoId, "T");
                     if (listaContratoAssociacaos.Count == 1)
                     {
                         regConjuntoComp.contrato = listaContratoAssociacaos[0].contratoErpId;
                         regConjuntoComp.itemContrato = listaContratoAssociacaos[0].itemContratoErpId;
+								  
                     }
-
-                    listaConjuntoComp.Add(regConjuntoComp);
+				   listaConjuntoComp.Add(regConjuntoComp);	 
+					 
                 }
             }
-        }        
+        }
+   
 
         private void btnAvancar_Click(object sender, EventArgs e)
         {
@@ -467,24 +505,74 @@ namespace Apresentacao
             frmAssociacaoPsaContrato.TopMost = true;
             frmAssociacaoPsaContrato.Show();            
         }
+		public void FiltraDataTable(System.Windows.Forms.TextBox textBox1, wf.DataGridView dtgProcurar, DataView dv, DataTable dt)
+        {
+            string filtro = "";
+            int j = 0;
+            if (string.IsNullOrEmpty(textBox1.Text))
+            {
+                dv.RowFilter = "";
+                dtgProcurar.DataSource = dv;
+            }
+            else
+            {
+                for (int i = 0; i < dt.Columns.Count - 1; i++)
+                {
+
+
+                    switch (dt.Columns[i].DataType.Name)
+                    {
+                        case "String":
+                            if (j == 0)
+                            {
+                                filtro = "(" + dt.Columns[i].ColumnName + " like '%" + textBox1.Text + "%')";
+
+                                j = j + 1;
+                            }
+                            else
+                            {
+                                filtro = filtro + " or (" + dt.Columns[i].ColumnName + " like '%" + textBox1.Text + "%')";
+                                j = j + 1;
+                            }
+                            break;
+                        case "Int32":
+                        case "DOUBLE":
+                            if (j == 0)
+                            {
+                                try
+                                {
+                                    Convert.ToDouble(textBox1.Text);
+                                    filtro = "(" + dt.Columns[i].ColumnName + " = " + textBox1.Text + ")";
+                                    j = j + 1;
+                                }
+                                catch
+                                {
+                                }
+                            }
+                            else
+                            {
+                                try
+                                {
+                                    Convert.ToDouble(textBox1.Text);
+                                    filtro = filtro + " or (" + dt.Columns[i].ColumnName + " = " + textBox1.Text + ")";
+                                    j = j + 1;
+                                }
+                                catch
+                                {
+                                }
+                            }
+
+                            break;
+                    }
+                }
+
+                dv.RowFilter = filtro;
+                dtgProcurar.DataSource = dv;
+            }
+        } 
     }
 
-    class conjuntoComp
-    {
-        public string conjunto { get; set; }
-        public string composicao { get; set; }
-        public string servico { get; set; }
-        public double percentual { get; set; }
-        public int contrato { get; set; }
-        public int itemContrato { get; set; }
-        public Boolean avancar { get; set; }        
-    }
+    
 
-    public class ErroAvanco
-    {
-        public int PSA_ID { get; set; }
-        public string ACAO { get; set; }
-        public int ID_BIM { get; set; }
-        public string ERRO { get; set; }
-    }
+  
 }

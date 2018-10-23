@@ -31,6 +31,38 @@ namespace ObjetoTransferencia
         public double PESO_REALIZADO { get; set; }
         public DateTime INICIO { get; set; }
         public DateTime TERMINO { get; set; }
+        public int TEM_PCP_EXECUTADO { get; set; }
+        public int TEM_PCP_PREVISTO { get; set; }
+        public bool TEM_PROJECAO
+        {
+            get
+            {
+                if (TEM_PCP_EXECUTADO == 1)
+                    return true;
+                if (TEM_PCP_PREVISTO == 1)
+                    return true;
+                return false;
+            }
+        }
+        public bool SOMENTE_PROJECAO
+        {
+            get
+            {
+                if(PESO_REALIZADO>0)
+                {
+                    if (TEM_PROJECAO) return false;
+                    else return false;
+
+                }
+                else
+                {
+                    if (TEM_PROJECAO) return true;
+                    else return false;
+                }
+
+            }
+        }
+
 
     }
 

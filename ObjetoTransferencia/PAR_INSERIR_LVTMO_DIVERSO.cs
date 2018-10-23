@@ -8,6 +8,11 @@ namespace ObjetoTransferencia
 {
     public class PAR_INSERIR_LVTMO_DIVERSO
     {
+        public PAR_INSERIR_LVTMO_DIVERSO()
+        {
+            Empilhada = false;
+        }
+        public bool Empilhada { get; set; }
         public string uau_comp;
         public double PESO_PRODUTIVIDADE { get; set; }
         public string INSUMO_VINCULADO;

@@ -130,22 +130,7 @@ namespace ObjetoTransferencia
        }
 
 
-   }
-   public class PAR_VERIFICAR_DADOS_PSA_ID
-   {
-       private int fSERVICO_ID;
-       private string fDESCRICAO;
-       
-       public int SERVICO_ID
-       {
-           get { return fSERVICO_ID; }
-           set { fSERVICO_ID = value; }
-       }
-       public string DESCRICAO
-       {
-           get { return fDESCRICAO; }
-           set { fDESCRICAO = value; }
-       }
+
 
    }
 

@@ -566,7 +566,7 @@ namespace Apresentacao
                 ParameterValue pv = p.GetValue();
                 StringParameterValue s = pv as StringParameterValue;
 
-                Negocios.ACESSO_MODELO acessoModelo = new Negocios.ACESSO_MODELO(typeof(MODELO_OBRA));
+                Negocios.ACESSO_MODELO acessoModelo = new Negocios.ACESSO_MODELO(dir);
 
                 MODELO_OBRA mb = new MODELO_OBRA();
                 mb.MODELO_GUID_ID = s.Value.ToString();                

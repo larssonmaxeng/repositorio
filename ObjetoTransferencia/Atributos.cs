@@ -7,6 +7,15 @@ using System.Reflection;
 
 namespace ObjetoTransferencia
 {
+
+    public class ParametroBasico
+    {
+        public int TIPO_DE_ACAO { get; set; }
+        public bool TIPO_ATIVO_ID { get; set; }
+        public bool TIPO_ESTATO_ID { get; set; }
+
+    }
+
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = true)]
     public class ParametroAttribute : Attribute
     {

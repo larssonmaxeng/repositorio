@@ -12,6 +12,8 @@ namespace ObjetoTransferencia
         PCP = 1,
         LookAHead = 2,
         SubGrafico = 3,
-        Excluir = 4
+        Excluir = 4,
+        ExcluirPCP = 5
+
     }
 }

@@ -16,5 +16,7 @@ namespace ObjetoTransferencia
         public DateTime DATA_ALT { get; set; }
         public int TIPO_ESTATO_ID { get; set; }
         public int TIPO_ATIVO_ID { get; set; }
+        public string NOME_DO_ARQUIVO { get; set; }
+
     }
 }
