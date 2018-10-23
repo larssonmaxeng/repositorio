@@ -14,18 +14,18 @@ namespace Negocios
             List<Servico> lista = new List<Servico>();
             AcessoBancoDados.FbsqlConnection sql = new AcessoBancoDados.FbsqlConnection();
             sql.Diretorio = dir;
-           
-            
+
+
             sql.Ativo(true);
             FirebirdSql.Data.FirebirdClient.FbTransaction t = sql.FbConexao.BeginTransaction();
             sql.t = t;
             sql.ExecutarSemRetorno(System.Data.CommandType.Text,
                 "  update or insert  into servico(servico, unid, complemento) values ('" +
-                servico.DescServico + "'," 
-                +"'"+servico.Unid + "','" +
+                servico.DescServico + "',"
+                + "'" + servico.Unid + "','" +
                 servico.Complemento + "')  matching (complemento) ");
 
-            t.Commit();       
+            t.Commit();
             sql.Close();
             sql.Dipose();
             return lista;
@@ -64,7 +64,7 @@ namespace Negocios
                             ETAPA_ID = Convert.ToInt32(fb["ETAPA_ID"]),
                             ETAPA_DESCRICAO = fb["ETAPA"].ToString()
                         }
-                        
+
                     });
             }
             sql.Close();
@@ -73,7 +73,7 @@ namespace Negocios
         }
         public List<Servico> Seleciona(string dir)
         {
-            
+
             List<Servico> lista = new List<Servico>();
             AcessoBancoDados.FbsqlConnection sql = new AcessoBancoDados.FbsqlConnection();
             sql.Diretorio = dir;
@@ -111,14 +111,14 @@ namespace Negocios
             sql.Ativo(true);
             FirebirdSql.Data.FirebirdClient.FbDataReader fb =
                 sql.ExecutarConsultaLista(System.Data.CommandType.Text,
-                                                               "SELECT servico_id, servico, unid  FROM servico "+ 
-                                                                   " where servico_id = "+ servicoId.ToString());
+                                                               "SELECT servico_id, servico, unid  FROM servico " +
+                                                                   " where servico_id = " + servicoId.ToString());
             while (fb.Read())
             {
 
 
 
-                servico.Unid =  fb["UNID"].ToString();
+                servico.Unid = fb["UNID"].ToString();
 
                 sql.Close();
                 sql.Dipose();
@@ -131,7 +131,7 @@ namespace Negocios
         public int SelecionaPorComplemento(string dir, string complemento, ref string strServico)
         {
             int servicoId;
-            
+
             AcessoBancoDados.FbsqlConnection sql = new AcessoBancoDados.FbsqlConnection();
             sql.Diretorio = dir;
             sql.Ativo(true);
@@ -149,6 +149,27 @@ namespace Negocios
             }
             return 0;
         }
+        public string SelecionaPorComplemento1(string dir, string complemento)
+        {
+            int servicoId;
+
+            AcessoBancoDados.FbsqlConnection sql = new AcessoBancoDados.FbsqlConnection();
+            sql.Diretorio = dir;
+            sql.Ativo(true);
+            FirebirdSql.Data.FirebirdClient.FbDataReader fb =
+                sql.ExecutarConsultaLista(System.Data.CommandType.Text,
+                                                               "SELECT servico_id, servico, complemento  FROM servico " +
+                                                                   " where complemento = '" + complemento + "'");
+            while (fb.Read())
+            {
+                servicoId = Convert.ToInt32(fb["SERVICO_ID"]);
+                //strServico = fb["SERVICO"].ToString();
+                sql.Close();
+                sql.Dipose();
+                return fb["SERVICO_ID"].ToString();
+            }
+            return "";
+        }
 
         public int InserirServico(string dir, Servico servico)
         {
@@ -159,13 +180,13 @@ namespace Negocios
             sql.Ativo(true);
 
             try
-            {                               
+            {
                 sql.t = sql.FbConexao.BeginTransaction();
 
                 strSql = " insert  into servico(servico, unid, complemento, elemento) values ('" +
                     servico.DescServico + "'," + "'" + servico.Unid + "','" + servico.Complemento + "','" + servico.Elemento + "') returning servico_id";
 
-                obj = sql.ExecutarManipulacao(System.Data.CommandType.Text, strSql);                
+                obj = sql.ExecutarManipulacao(System.Data.CommandType.Text, strSql);
 
                 sql.t.Commit();
                 sql.Close();
@@ -179,7 +200,7 @@ namespace Negocios
                 sql.Close();
                 sql.Dipose();
                 return 0;
-            }            
+            }
         }
 
         public Boolean AtualizarServico(string dir, Servico servico)
@@ -191,7 +212,7 @@ namespace Negocios
 
             try
             {
-                sql.t = sql.FbConexao.BeginTransaction();                
+                sql.t = sql.FbConexao.BeginTransaction();
 
                 strSql = "Update servico Set servico = '" + servico.DescServico + "', " +
                     "unid = '" + servico.Unid + "', " +
@@ -246,5 +267,5 @@ namespace Negocios
             }
         }
     }
-    
+
 }
