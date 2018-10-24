@@ -945,7 +945,7 @@ namespace Negocios
                 return exception.Message;
             }
         }
-        public PLAN_SERVICO_AMOColecao ConsultarPorId(int PLAN_SERVICO_AMO_ID)
+       /* public PLAN_SERVICO_AMOColecao ConsultarPorId(int PLAN_SERVICO_AMO_ID)
         {
             try
             {
@@ -967,6 +967,6 @@ namespace Negocios
             {
                 throw new Exception("Não foi possível localizar o elemento:"+exception.Message);
             }
-        }      
+        }     */ 
     }
 }

@@ -38,7 +38,7 @@ namespace Negocios
                                                                             "  integer_value,"+
                                                                             "  tipo_estato_id,"+
                                                                              " tipo_ativo_id,"+
-                                                                             " revisao  "+
+                                                                             " revisao , PAVIMENTO, ELEVACAO, TIPO_DE_VISTA " +
                                                                      "  from nuvem_revisao "+
                                                                     "   WHERE  modelo_guid_id ='" + parametros.MODELO_GUID_ID+"'");
                 string resultado;
@@ -92,7 +92,7 @@ namespace Negocios
                                                     "  @tipo_estato_id," +
                                                     "  @tipo_ativo_id," +
                                                    "   @revisao," +
-                                                   "   @tipo_de_acao)");
+                                                   "   @tipo_de_acao, @pavimento, @elevacao, @tipo_de_vista)");
                 while (fb.Read())
                 {
 

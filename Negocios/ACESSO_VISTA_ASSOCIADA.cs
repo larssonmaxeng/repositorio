@@ -32,7 +32,7 @@ namespace Negocios
                                                                                         " nuvem_revisao_id,"+
                                                                                         " tipo_ativo_id,"+
                                                                                         " tipo_estato_id,"+
-                                                                                       "  integer_value "+
+                                                                                       "  integer_value, PAVIMENTO, ELEVACAO, TIPO_DE_VISTA "+
                                                                                "   from vista_associada  "+
                                                                                 "  where nuvem_revisao_id = "+parametros.NUVEM_REVISAO_ID.ToString());
             while (fb.Read())
@@ -72,7 +72,7 @@ namespace Negocios
                                                                                       "  @comentario,"+
                                                                                       "  @imagem,"+
                                                                                       "  @tipo_ativo_id,"+
-                                                                                      "  @tipo_estato_id)");
+                                                                                      "  @tipo_estato_id, @pavimento, @elevacao, @tipo_de_vista)");
                 while (fb.Read())
                 {
                     if (parametros.TIPO_DE_ACAO == 0)
