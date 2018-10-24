@@ -23,6 +23,7 @@ namespace ObjetoTransferencia
         public int INTEGER_VALUE { get; set; }
         public string PAVIMENTO { get; set; }
         public double ELEVACAO { get; set; }
+        public string TIPO_DE_VISTA { get; set; }
 
     }
     public class VISTA_ASSOCIADA:ParametroBasico
@@ -35,6 +36,7 @@ namespace ObjetoTransferencia
         public byte[] IMAGEM { get; set; }//
 		public string PAVIMENTO {get;set;}
 		public double ELEVACAO {get;set;}
+        public string TIPO_DE_VISTA { get; set; }
 
 
     }
