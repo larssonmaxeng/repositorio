@@ -549,36 +549,11 @@ namespace Apresentacao
         {
             if (e.ColumnIndex == this.registrarModelo.Index && e.RowIndex >= 0)
             {
-                RegistrarModel(modrevit);
+                Funcoes.Util.RegistraDadosModelo( modrevit.Application.ActiveUIDocument.Document, dir);
             }
 
         }
 
-        public void RegistrarModel(ExternalCommandData revit)
-        {
-            UIApplication uiApp = revit.Application;
-            Document uiDoc = uiApp.ActiveUIDocument.Document;
-            Selection sel = uiApp.ActiveUIDocument.Selection;
-
-            try
-            {
-                GlobalParameter p = FuncaoNBR15575.globalParameter(uiDoc, "L7GUID");
-                ParameterValue pv = p.GetValue();
-                StringParameterValue s = pv as StringParameterValue;
-
-                Negocios.ACESSO_MODELO acessoModelo = new Negocios.ACESSO_MODELO(dir);
-
-                MODELO_OBRA mb = new MODELO_OBRA();
-                mb.MODELO_GUID_ID = s.Value.ToString();                
-                mb.OBRA_ID = Convert.ToInt32(grdObra.Rows[grdObra.CurrentRow.Index].Cells["Obra_Id"].Value);
-
-                acessoModelo.Inserir(dir, mb);
-                MessageBox.Show("Modelo cadastrado com sucesso!");
-            }
-            catch (Exception e)
-            {
-                TaskDialog.Show("_", e.Message);
-            }
-        }
+        
     }
 }

@@ -33,7 +33,7 @@ namespace Apresentacao
         private int linhaAlterarServico;
         private Servico regServico = new Servico();
         private ACESSO_SERVICO objNegServico = new ACESSO_SERVICO();
-        private ACESSO_MODELO objNegModeloObra = new ACESSO_MODELO(typeof(MODELO_OBRA));
+        private ACESSO_MODELO_OBRA objNegModeloObra;
         private List<MODELO_OBRA> listaModeloObra = new List<MODELO_OBRA>();
         private int obraId;
         private Boolean tipoFamiliaAlterado;
@@ -43,6 +43,7 @@ namespace Apresentacao
         {
             InitializeComponent();
             dir = idir;
+            objNegModeloObra = new ACESSO_MODELO_OBRA(dir);
             grdVinculos.CellEndEdit += grdVinculos_CellEndEdit;
             grdTocBIM.CellEndEdit += grdTocBIM_CellEndEdit;
             grdTocBIM.RowValidated += grdTocBIM_RowValidated;
