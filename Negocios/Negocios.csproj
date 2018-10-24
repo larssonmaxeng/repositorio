@@ -51,7 +51,7 @@
     <Compile Include="Acesso_Historico_Exporta_Qtde.cs" />
     <Compile Include="Acesso_Hist_Exporta_Qtde_Insumo.cs" />
     <Compile Include="Acesso_Item_Estrutura_UAU.cs" />
-    <Compile Include="ACESSO_MODELO.cs" />
+    <Compile Include="ACESSO_MODELO_OBRA.cs" />
     <Compile Include="ACESSO_ACOMPANHA_CONTRATO_TOCBIM.cs" />
     <Compile Include="ACESSO_AVANCAR_AMBIENTE_SERVICO.cs" />
     <Compile Include="ACESSO_BIM_4D_BLOCONOVO.cs" />
@@ -63,7 +63,6 @@
     <Compile Include="ACESSO_GRUPO_PLAN_SERVICO.cs" />
     <Compile Include="ACESSO_INSERIR_LVTMO_DIVERSO.cs" />
     <Compile Include="ACESSO_MEDICAO_BLOCO.cs" />
-    <Compile Include="ACESSO_MODELO_OBRA.cs" />
     <Compile Include="ACESSO_NUVEM_REVISAO.cs" />
     <Compile Include="ACESSO_OBRA.cs" />
     <Compile Include="ACESSO_PLAN_SERVICO_AMO.cs" />
